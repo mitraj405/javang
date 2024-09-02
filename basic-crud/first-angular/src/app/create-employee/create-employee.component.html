@@ -1,0 +1,106 @@
+<!-- 
+<div class = "col-md-6 offset-md-3">
+<h3>Creation form</h3>
+<form  [formGroup]="userForm">
+   <div class="form-group">
+    <label>First Name</label>
+    <input type = "text" class = "form-control" id = "firstname"
+        formControlName = "firstname" name = "fistname">
+    <div class="text-danger" *ngIf=" userForm.controls['firstname'].invalid  && (userForm.controls['firstname'].touched || isFormSubmitted  || userForm.controls['firstname'].dirty)">
+        <span *ngIf = "userForm.controls['firstname'].errors?.['required']">This is required</span>
+        <span *ngIf = "userForm.controls['firstname'].errors?.['minlength']">minimum length should be more than 1</span>
+        <span *ngIf="userForm.controls['firstname'].errors?.['pattern']">Only alphabetic characters are allowed</span>
+    </div>
+
+   </div> 
+   <div class="form-group">
+    <label>Last Name</label>
+    <input type = "text" class = "form-control" id = "lastname"
+        formControlName = "lastname" name = "lastname">
+        <div class="text-danger" *ngIf=" userForm.controls['lastname'].invalid && (userForm.controls['lastname'].touched || userForm.controls['lastname'].dirty)">
+            <span *ngIf = "userForm.controls['lastname'].errors?.['required']">This is required</span>
+            <span *ngIf = "userForm.controls['lastname'].errors?.['minlength']">minimum length should be more than 1</span>
+            <span *ngIf="userForm.controls['lastname'].errors?.['pattern']">Only alphabetic characters are allowed</span>
+        </div>
+        
+   </div> 
+   <div class="form-group">
+    <label>emailid</label>
+    <input type = "text" class = "form-control" id = "emailid"
+        formControlName = "emailid" name = "emailid">
+        <div class="text-danger" *ngIf=" userForm.controls['emailid'].invalid && (userForm.controls['emailid'].touched || userForm.controls['emailid'].dirty)">
+            <span *ngIf = "userForm.controls['emailid'].errors?.['required']">This is required</span>
+            <span *ngIf = "userForm.controls['emailid'].errors?.['email']">enter correct email address</span>
+        </div>
+   </div> 
+   <button class = "btn btn-success" type = "submit" (click)="onSubmit()">Submit</button>
+</form>
+</div>
+
+-->
+
+
+<div class="col-md-6 offset-md-3">
+    <h3>Creation form</h3>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <!-- First Name -->
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" id="firstname" formControlName="firstname" name="firstname">
+            <div class="text-danger"
+                *ngIf="userForm.controls['firstname'].invalid && (userForm.controls['firstname'].touched || isFormSubmitted || userForm.controls['firstname'].dirty)">
+                <span *ngIf="userForm.controls['firstname'].errors?.['required']">This is required<br></span>
+                <span *ngIf="userForm.controls['firstname'].errors?.['pattern']">Only alphabetic characters are allowed<br></span>
+            </div>
+        </div>
+
+        <!-- Last Name -->
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" id="lastname" formControlName="lastname" name="lastname">
+            <div class="text-danger"
+                *ngIf="userForm.controls['lastname'].invalid && (userForm.controls['lastname'].touched || userForm.controls['lastname'].dirty)">
+                <span *ngIf="userForm.controls['lastname'].errors?.['required']">This is required<br></span>
+                <span *ngIf="userForm.controls['lastname'].errors?.['pattern']">Only alphabetic characters are allowed<br></span>
+            </div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label>Email ID</label>
+            <input type="text" class="form-control" id="emailid" formControlName="emailid" name="emailid">
+            <div class="text-danger"
+                *ngIf="userForm.controls['emailid'].invalid && (userForm.controls['emailid'].touched || userForm.controls['emailid'].dirty)">
+                <span *ngIf="userForm.controls['emailid'].errors?.['required']">This is required<br></span>
+                <span *ngIf="userForm.controls['emailid'].errors?.['email']">Enter a correct email address<br></span>
+            </div>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" class="form-control" id="phone" formControlName="phone">
+            <div class="text-danger"
+                *ngIf="userForm.controls['phone'].invalid && (userForm.controls['phone'].touched || userForm.controls['phone'].dirty)">
+                <span *ngIf="userForm.controls['phone'].errors?.['required']">This is required<br></span>
+                <span *ngIf="userForm.controls['phone'].errors?.['pattern']">Enter exactly 10 digits<br></span>
+            </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password">
+            <div class="text-danger"
+                *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].touched || userForm.controls['password'].dirty)">
+                <span *ngIf="userForm.controls['password'].errors?.['required']">This is required<br></span>
+                <span *ngIf="userForm.controls['password'].errors?.['minlength']">Minimum length should be 8<br></span>
+                <span *ngIf="userForm.controls['password'].errors?.['maxlength']">Maximum length should be 16<br></span>
+                <span *ngIf="userForm.controls['password'].errors?.['pattern']">Must contain at least one uppercase letter<br></span>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+</div>
